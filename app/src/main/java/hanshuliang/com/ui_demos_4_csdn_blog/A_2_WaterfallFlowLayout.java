@@ -51,6 +51,7 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
 
         Log.i(TAG, "onMeasure");
 
+        //onMeasure 可能会进行多次调用, 这里需要兼容 7.0 之后的情况
         childViewsLists.clear();
         heightLists.clear();
 
@@ -117,7 +118,7 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
                     childViewsLists.add(childViewList);
 
 
-                    //2. 记录新的行信息, 更新当前记录的 宽 和 高
+                    //子组件测量 换行逻辑 : 2. 记录新的行信息, 更新当前记录的 宽 和 高
                     currentWidth = childWidth;
                     currentHeight = childHeight;
                     //创建新的行组件记录集合
@@ -126,7 +127,9 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
 
                 }else{//累加后可以在本行显示, 不换行
 
-                    //不换行的话, 宽度累加
+                    //子组件测量 不换行逻辑 :
+
+                    // 不换行的话, 宽度累加
                     currentWidth += childWidth;
                     //高度设置策略 : 取 childHeight 值 : 如果是第一次累加, currentHeight 为 0, 这时取 currentHeight = childHeight 为最大值
                     //             取 currentHeight 值 : 第一次之后的累加时都是 currentHeight = currentHeight;
