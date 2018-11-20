@@ -43,7 +43,7 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */
-    /*@Override
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
         //布局测量 : 1. 定义存储测量最终结果的变量
@@ -130,123 +130,23 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
                     }
                 }
             }
-
-            //设置最终测量出来的宽和高
-            setMeasuredDimension(width, height);
         }
 
-    }*/
-
-
-    //List<Integer> lstLineHegiht = new ArrayList<>();
-    //List<List<View>> lstLineView = new ArrayList<>();
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //1.先完成自己的宽高测量
-        //需要得到mode进行判断我的显示模式是怎样的
-        //得到宽高模式
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
-        //父容器宽高
-        int widthSize =  MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize =  MeasureSpec.getSize(heightMeasureSpec);
-
-        //当前控件宽高(自己)
-        int measureWidth = 0;
-        int measureHeight = 0;
-
-
-        if(widthMode == MeasureSpec.EXACTLY && heightMode == MeasureSpec.EXACTLY ){
-            measureWidth = widthSize;
-            measureHeight = heightSize;
-        }else{
-
-            //当前行高宽
-            int iChildHegiht = 0;
-            int iChildWidth = 0;
-
-            int iCurWidth = 0;
-            int iCurHeight = 0;
-
-
-            //数量
-            int childCount = getChildCount();
-
-            ArrayList<View> viewList = new ArrayList<>();
-            for (int i = 0;i < childCount ; i++){
-                //确定两个事情，当前行高，当前行宽
-                View child = getChildAt(i);
-                //先让子控件测量自己
-                measureChild(child,widthMeasureSpec,heightMeasureSpec);
-
-                //MARGIN 获取到当前LayoutParams
-                MarginLayoutParams layoutParams = (MarginLayoutParams) child.getLayoutParams();
-
-                //获取实际宽高
-                iChildWidth = child.getMeasuredWidth() + layoutParams.rightMargin + layoutParams.leftMargin;
-                iChildHegiht = child.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin;
-
-
-                //是否需要开始换行
-                if(iChildWidth + iCurWidth > widthSize){
-                    //1.保存当前行信息
-                    measureWidth = Math.max(measureWidth,iCurWidth);
-                    measureHeight += iCurHeight;
-                    heightLists.add(iCurHeight);
-                    childViewsLists.add(viewList);
-
-
-                    //更新的行信息
-                    iCurWidth = iChildWidth;
-                    iCurHeight = iChildHegiht;
-
-                    viewList = new ArrayList<>();
-                    viewList.add(child);
-
-
-
-                    //2.记录新行信息
-                }else{
-                    iCurWidth += iChildWidth;
-                    iCurHeight = Math.max(iCurHeight,iChildHegiht);
-
-                    viewList.add(child);
-
-                }
-
-                //6.如果正好是最后一行需要换行
-                if(i == childCount - 1){
-                    //6.1.记录当前行的最大宽度，高度累加
-                    measureWidth = Math.max(measureWidth,iCurWidth);
-                    measureHeight += iCurHeight;
-
-
-                    //6.2.将当前行的viewList添加至总的mViewsList，将行高添加至总的行高List
-                    childViewsLists.add(viewList);
-                    heightLists.add(iCurHeight);
-
-                }
-
-
-
-            }
-
-        }
-
-        setMeasuredDimension(measureWidth,measureHeight);
+        //布局测量 : 5. 设置最终测量出来的宽和高
+        setMeasuredDimension(width, height);
     }
 
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
 
-        //用于记录每个组件的 左上右下 坐标的变量
+        //布局摆放 : 1. 定义用于记录每个组件的 左上右下 坐标的变量
         int left, top, right, bottom;
-        //用于记录累加的 左 和 上 的坐标
+
+        //布局摆放 : 2. 定义 用于记录累加的 左 和 上 的坐标
         int currentLeft = 0, currentTop = 0;
 
-        //遍历所有的子组件, 并放置子组件, 该层循环是遍历一行组件的 集合, 单个元素是一个组件集合
+        //布局摆放 : 3. 进行布局摆放, 遍历所有的子组件, 并放置子组件, 该层循环是遍历一行组件的 集合, 单个元素是一个组件集合
         for (int i = 0; i < childViewsLists.size(); i ++){
             ArrayList<View> childViewsList = childViewsLists.get(i);
 
@@ -276,7 +176,7 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
             childViewsList.clear();
         }
 
-        //清空集合, 最大限度节省内存
+        //布局摆放 : 4. 清空集合, 最大限度及时节省内存
         childViewsLists.clear();
         heightLists.clear();
     }
