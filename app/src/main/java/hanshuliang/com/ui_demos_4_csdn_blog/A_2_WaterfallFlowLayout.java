@@ -2,13 +2,16 @@ package hanshuliang.com.ui_demos_4_csdn_blog;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class A_2_WaterfallFlowLayout extends ViewGroup {
 
+    public static final String TAG = "A_2_WaterfallFlowLayout";
 
     /**
      * ArrayList<View> 存放每一行的组件集合
@@ -46,6 +49,11 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
+        Log.i(TAG, "onMeasure");
+
+        childViewsLists.clear();
+        heightLists.clear();
+
         //布局测量 : 1. 定义存储测量最终结果的变量
         int width = 0;
         int height = 0;
@@ -70,48 +78,54 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
             int currentWidth = 0;
             int currentHeight = 0;
 
-            //AT_MOST 测量 : 2. 遍历所有的子组件,
+            //AT_MOST 测量 : 2. 定义变量存储 子组件的 宽高
+            int childWidth = 0;
+            int childHeight = 0;
+
+            //AT_MOST 测量 : 3. 存放一行的子组件, 换行时将该队列放入 childViewLists 集合中, 并创建新的集合
+            ArrayList<View> childViewList = new ArrayList<>();
+
+            //AT_MOST 测量 : 4. 遍历所有的子组件,
             for(int i = 0; i < getChildCount(); i ++){
                 View child = getChildAt(i);
-                int childWidth = 0;
-                int childHeight = 0;
 
-                //测量子组件
+                //子组件测量 : 1. 测量子组件
                 measureChild(child, widthMeasureSpec, heightMeasureSpec);
 
+                //子组件测量 : 2. 获取子组件的布局参数
                 //获取子组件 四个方向的 margin 值, 将布局参数强转为 MarginLayoutParams 类型, 需要重写 generateLayoutParams 方法, 让其返回 MarginLayoutParams 类型
                 //注意 : 这里只计算 margin 值, 即 以组件大小为基准, 向外扩展的大小; padding 值是以组件宽高为基准, 向内部的压缩子组件的宽高, 不在测量的考虑范围内
                 MarginLayoutParams marginLayoutParams = (MarginLayoutParams) child.getLayoutParams();
 
-                //获取当前组件的实际宽度
+                //子组件测量 : 3. 获取子组件占用的实际宽度, 组件大小 + 左右 margin 大小
                 childWidth = child.getMeasuredWidth() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
                 childHeight = child.getMeasuredHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
 
 
-                //存放一行的子组件, 换行时将该队列放入 childViewLists 集合中, 并创建新的集合
-                ArrayList<View> childViewList = new ArrayList<>();
-                //计算该组件是否换行
-                if(childWidth + currentWidth > width){
+                //子组件测量 : 4. 计算该组件是否需要换行, 当组件实际占用宽度 + 累加宽度 大于组件宽度时, 进行换行操作
+                if(childWidth + currentWidth > widthSize){
                     //累加超出了计算的大小, 换行
 
-                    //1.保存当前行, 每次换行的时候都
+                    //子组件测量 换行逻辑 : 1.保存当前行, 每次换行的时候都
                     //取值策略 : 两个值相加大于总宽度, 此时该子组件的宽度取 currentWidth 累加值 或 childWidth 子组件中的最大值
-                    width = Math.max(currentWidth, childWidth);
+                    width = Math.max(width, currentWidth);
                     //如果换行, 那么高度累加
                     height += currentHeight;
 
                     //更新记录信息
-                    heightLists.add(height);
+                    heightLists.add(currentHeight);
                     childViewsLists.add(childViewList);
 
 
                     //2. 记录新的行信息, 更新当前记录的 宽 和 高
                     currentWidth = childWidth;
-                    currentHeight = currentWidth;
+                    currentHeight = childHeight;
                     //创建新的行组件记录集合
                     childViewList = new ArrayList<>();
+                    childViewList.add(child);
 
                 }else{//累加后可以在本行显示, 不换行
+
                     //不换行的话, 宽度累加
                     currentWidth += childWidth;
                     //高度设置策略 : 取 childHeight 值 : 如果是第一次累加, currentHeight 为 0, 这时取 currentHeight = childHeight 为最大值
@@ -119,26 +133,29 @@ public class A_2_WaterfallFlowLayout extends ViewGroup {
                     currentHeight = Math.max(currentHeight, childHeight);
                     //向代表每行组件的 childViewList 集合中添加该子组件
                     childViewList.add(child);
+                }
 
-                    if(i == getChildCount() - 1){
-                        //处理换行逻辑, 虽然没有换行, 但是处理到了最后一个, 需要处理整行信息
-                        width = Math.max(currentWidth, childWidth);
-                        height += currentHeight;
+                if(i == getChildCount() - 1){
+                    //处理换行逻辑, 虽然没有换行, 但是处理到了最后一个, 需要处理整行信息
+                    width = Math.max(width, currentWidth);
+                    height += currentHeight;
 
-                        heightLists.add(height);
-                        childViewsLists.add(childViewList);
-                    }
+                    heightLists.add(currentHeight);
+                    childViewsLists.add(childViewList);
                 }
             }
         }
 
         //布局测量 : 5. 设置最终测量出来的宽和高
         setMeasuredDimension(width, height);
+        Log.i(TAG, "onMeasure width : " + width + " , height : " + height + " , heightLists : " + heightLists.size() + " , childViewsLists : " + childViewsLists.size());
     }
 
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+        Log.i(TAG, "onLayout");
 
         //布局摆放 : 1. 定义用于记录每个组件的 左上右下 坐标的变量
         int left, top, right, bottom;

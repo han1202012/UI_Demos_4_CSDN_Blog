@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-public class B_1_Paint_Demo_Activity extends Activity {
+public class B_1_Paint_Shader_Activity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
