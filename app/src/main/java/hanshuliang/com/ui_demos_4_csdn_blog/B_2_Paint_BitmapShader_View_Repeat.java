@@ -42,7 +42,10 @@ public class B_2_Paint_BitmapShader_View_Repeat extends View {
         //2. 设置渲染到 Paint 对象
         mPaint.setShader(bitmapShader);
 
-        //3. 绘制指定的矩形区域
+        //3. 打开抗锯齿
+        mPaint.setAntiAlias(true);
+
+        //4. 绘制指定的矩形区域
         canvas.drawRect(0, 0, getWidth(), getHeight(), mPaint);
     }
 }
