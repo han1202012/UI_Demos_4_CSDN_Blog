@@ -11,6 +11,10 @@ public class B_1_Paint_Shader_Activity extends Activity {
         super.onCreate(savedInstanceState);
 
 
+        //setContentView(new RadarGradientView(this));
+        //setContentView(new ZoomImageView(this));
+        setContentView(R.layout.activity_main);
+        //setContentView(new MyGradientView(this));
 
     }
 
