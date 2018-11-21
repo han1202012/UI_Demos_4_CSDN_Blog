@@ -21,6 +21,8 @@
 
         <activity android:name=".B_1_Paint_Shader_Activity"/>
 
+        <activity android:name=".B_2_Paint_BitmapShader_Activity"/>
+
 
     </application>
 

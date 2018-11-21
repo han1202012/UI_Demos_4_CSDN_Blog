@@ -8,15 +8,9 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/a_1_waterfall"
+        android:id="@+id/bitmap_shader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="瀑布流"/>
-
-    <Button
-        android:id="@+id/b_1_paint_shader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Paint 渲染"/>
+        android:text="位图渲染"/>
 
 </LinearLayout>
