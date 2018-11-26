@@ -14,8 +14,6 @@ import android.view.View;
 
 public class B_2_Paint_BitmapShader_View_Repeat extends View {
 
-    private Paint mPaint;
-
     public B_2_Paint_BitmapShader_View_Repeat(Context context) {
         super(context);
     }
@@ -33,8 +31,8 @@ public class B_2_Paint_BitmapShader_View_Repeat extends View {
         super.onDraw(canvas);
         canvas.drawColor(Color.WHITE);
 
-        mPaint = new Paint();
-        Bitmap mBitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.aodesai)).getBitmap();
+        Paint mPaint = new Paint();
+        Bitmap mBitmap = ((BitmapDrawable)getResources().getDrawable(R.mipmap.aodesai)).getBitmap();
 
         //1. 创建位图渲染对象, 并设置拉伸方式, 此处设置Shader.TileMode.CLAMP,  如果绘制的位置超出了图像的边界, 使用平铺方式填充
         BitmapShader bitmapShader = new BitmapShader(mBitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
