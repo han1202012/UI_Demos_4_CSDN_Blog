@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.hanshuliang.shader.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,19 +45,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <hanshuliang.com.ui_demos_4_csdn_blog.B_2_Paint_BitmapShader_View_Clamp
+                <com.hanshuliang.shader.B_2_Paint_BitmapShader_View_Clamp
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"
                     android:layout_height="100dip" />
 
-                <hanshuliang.com.ui_demos_4_csdn_blog.B_2_Paint_BitmapShader_View_Repeat
+                <com.hanshuliang.shader.B_2_Paint_BitmapShader_View_Repeat
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"
                     android:layout_height="100dip" />
 
-                <hanshuliang.com.ui_demos_4_csdn_blog.B_2_Paint_BitmapShader_View_Mirror
+                <com.hanshuliang.shader.B_2_Paint_BitmapShader_View_Mirror
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"

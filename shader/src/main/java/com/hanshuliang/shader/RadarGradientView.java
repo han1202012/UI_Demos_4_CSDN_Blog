@@ -1,4 +1,4 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.content.Context;
 import android.graphics.Canvas;

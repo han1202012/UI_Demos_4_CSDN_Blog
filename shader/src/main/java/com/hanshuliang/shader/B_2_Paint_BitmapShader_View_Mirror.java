@@ -1,4 +1,4 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,17 +12,18 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class B_2_Paint_BitmapShader_View_Repeat extends View {
 
-    public B_2_Paint_BitmapShader_View_Repeat(Context context) {
+public class B_2_Paint_BitmapShader_View_Mirror extends View {
+
+    public B_2_Paint_BitmapShader_View_Mirror(Context context) {
         super(context);
     }
 
-    public B_2_Paint_BitmapShader_View_Repeat(Context context, @Nullable AttributeSet attrs) {
+    public B_2_Paint_BitmapShader_View_Mirror(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public B_2_Paint_BitmapShader_View_Repeat(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public B_2_Paint_BitmapShader_View_Mirror(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -34,8 +35,8 @@ public class B_2_Paint_BitmapShader_View_Repeat extends View {
         Paint mPaint = new Paint();
         Bitmap mBitmap = ((BitmapDrawable)getResources().getDrawable(R.mipmap.aodesai)).getBitmap();
 
-        //1. 创建位图渲染对象, 并设置拉伸方式, 此处设置Shader.TileMode.CLAMP,  如果绘制的位置超出了图像的边界, 使用平铺方式填充
-        BitmapShader bitmapShader = new BitmapShader(mBitmap, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
+        //1. 创建位图渲染对象, 并设置拉伸方式, 此处设置Shader.TileMode.CLAMP,  如果绘制的位置超出了图像的边界, 那么超出部分 使用镜像平铺方式填充
+        BitmapShader bitmapShader = new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
 
         //2. 设置渲染到 Paint 对象
         mPaint.setShader(bitmapShader);

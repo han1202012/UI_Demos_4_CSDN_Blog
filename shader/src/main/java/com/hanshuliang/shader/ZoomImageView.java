@@ -1,4 +1,4 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +11,8 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.view.MotionEvent;
 import android.view.View;
+
+import hanshuliang.com.ui_demos_4_csdn_blog.R;
 
 /**
  *
@@ -34,7 +36,7 @@ public class ZoomImageView extends View {
     public ZoomImageView(Context context) {
         super(context);
 
-        mBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.xyjy3);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.xyjy3);
         mBitmapScale = mBitmap;
         //放大后的整个图片
         mBitmapScale = Bitmap.createScaledBitmap(mBitmapScale,mBitmapScale.getWidth() * FACTOR,

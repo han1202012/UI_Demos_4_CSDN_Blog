@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hanshuliang.com.ui_demos_4_csdn_blog">
+    package="com.hanshuliang.shader">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.hanshuliang.shader.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".A_1_Measure_Layout_Demo_Activity"/>
+        <activity android:name="com.hanshuliang.shader.A_1_Measure_Layout_Demo_Activity"/>
 
-        <activity android:name=".B_1_Paint_Shader_Activity"/>
+        <activity android:name="com.hanshuliang.shader.B_1_Paint_Shader_Activity"/>
 
-        <activity android:name=".B_2_Paint_BitmapShader_Activity"/>
+        <activity android:name="com.hanshuliang.shader.B_2_Paint_BitmapShader_Activity"/>
 
 
     </application>

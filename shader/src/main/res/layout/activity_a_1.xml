@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.hanshuliang.shader.MainActivity">
 
-    <hanshuliang.com.ui_demos_4_csdn_blog.A_2_WaterfallFlowLayout
+    <com.hanshuliang.shader.A_2_WaterfallFlowLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -120,6 +120,6 @@
             android:background="#FF8C69"
             android:textSize="27sp" />
 
-    </hanshuliang.com.ui_demos_4_csdn_blog.A_2_WaterfallFlowLayout>
+    </com.hanshuliang.shader.A_2_WaterfallFlowLayout>
 
 </LinearLayout>

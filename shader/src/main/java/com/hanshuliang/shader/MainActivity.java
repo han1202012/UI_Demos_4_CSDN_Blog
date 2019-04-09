@@ -1,9 +1,11 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import hanshuliang.com.ui_demos_4_csdn_blog.R;
 
 public class MainActivity extends AppCompatActivity {
 

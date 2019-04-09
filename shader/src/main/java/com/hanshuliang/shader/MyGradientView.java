@@ -1,4 +1,4 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,6 +14,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import hanshuliang.com.ui_demos_4_csdn_blog.R;
 
 /**
  *

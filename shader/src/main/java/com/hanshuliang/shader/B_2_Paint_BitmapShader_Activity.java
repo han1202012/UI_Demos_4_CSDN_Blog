@@ -1,15 +1,17 @@
-package hanshuliang.com.ui_demos_4_csdn_blog;
+package com.hanshuliang.shader;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-public class A_1_Measure_Layout_Demo_Activity extends Activity {
+
+public class B_2_Paint_BitmapShader_Activity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_a_1);
-    }
-}
+        setContentView(R.layout.activity_b_2);
 
+    }
+
+}
