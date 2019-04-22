@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import hanshuliang.com.ui_demos_4_csdn_blog.R;
 
 /**
  *

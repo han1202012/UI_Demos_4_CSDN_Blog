@@ -12,7 +12,6 @@ import android.graphics.drawable.shapes.OvalShape;
 import android.view.MotionEvent;
 import android.view.View;
 
-import hanshuliang.com.ui_demos_4_csdn_blog.R;
 
 /**
  *
