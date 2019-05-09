@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+/**
+ * 主要是 onMeasure 和 onLayout 两个方法
+ */
 public class WaterfallFlowLayout extends ViewGroup {
 
     public static final String TAG = "WaterfallFlowLayout";
