@@ -45,19 +45,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.hanshuliang.shader.widget.Paint_BitmapShader_View_Clamp
+                <com.hanshuliang.shader.widget.PaintBitmapShaderClamp
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"
                     android:layout_height="100dip" />
 
-                <com.hanshuliang.shader.widget.Paint_BitmapShader_View_Repeat
+                <com.hanshuliang.shader.widget.PaintBitmapShaderRepeat
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"
                     android:layout_height="100dip" />
 
-                <com.hanshuliang.shader.widget.Paint_BitmapShader_View_Mirror
+                <com.hanshuliang.shader.widget.PaintBitmapShaderMirror
                     android:layout_width="0dip"
                     android:layout_weight="1"
                     android:layout_margin="10dip"

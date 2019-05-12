@@ -18,17 +18,17 @@ import android.view.View;
 import com.hanshuliang.shader.R;
 
 
-public class Paint_BitmapShader_View_Clamp extends View {
+public class PaintBitmapShaderClamp extends View {
 
-    public Paint_BitmapShader_View_Clamp(Context context) {
+    public PaintBitmapShaderClamp(Context context) {
         super(context);
     }
 
-    public Paint_BitmapShader_View_Clamp(Context context, @Nullable AttributeSet attrs) {
+    public PaintBitmapShaderClamp(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public Paint_BitmapShader_View_Clamp(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PaintBitmapShaderClamp(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
