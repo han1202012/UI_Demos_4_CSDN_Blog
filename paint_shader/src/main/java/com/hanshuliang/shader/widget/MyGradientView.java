@@ -104,6 +104,15 @@ public class MyGradientView extends View {
         canvas.drawRect(0, 0, 800, 1000, mPaint);*/
 
         /***************用ComposeShader即可实现心形图渐变效果*********************************/
+        /*
+            这里采用了 组合式渲染
+            1. 首先用位图填充 , 创建 BitmapShader , 按像素点 ( Shader.TileMode.CLAMP ) 对 图形进行拉伸 ;
+            2. 再次添加一个 线性渲染 , 创建 LinearGradient 线性渲染 ,
+            3. 使用 ComposeShader , 将上面的 位图渲染 和 线性渲染 集合使用 , 首先使用位图渲染 , 然后使用 线性渲染 ,
+         */
+
+
+
         //创建BitmapShader，用以绘制心
         Bitmap mBitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.heart)).getBitmap();
         BitmapShader bitmapShader = new BitmapShader(mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);

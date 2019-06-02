@@ -1,125 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <com.hanshuliang.waterflowlayout.WaterfallFlowLayout
+        android:id="@+id/waterfallFlowLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="刺客信条 奥德赛"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF8C69"
+            android:padding="3dip"
+            android:text="刺客信条 奥德赛"
             android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="刺客信条 起源"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF34B3"
+            android:padding="3dip"
+            android:text="刺客信条 起源"
             android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="孤岛惊魂 5"
-            android:padding="3dip"
-            android:layout_margin="3dip"
             android:background="#7CFC00"
+            android:padding="3dip"
+            android:text="孤岛惊魂 5"
             android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="幽灵行动 荒野"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#436EEE"
+            android:padding="3dip"
+            android:text="幽灵行动 荒野"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="彩虹6号 围攻"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF8C69"
+            android:padding="3dip"
+            android:text="彩虹6号 围攻"
             android:textSize="26sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="逃离塔科夫"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF34B3"
+            android:padding="3dip"
+            android:text="逃离塔科夫"
             android:textSize="28sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="方舟生存进化"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#7CFC00"
+            android:padding="3dip"
+            android:text="方舟生存进化"
             android:textSize="17sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="逃生"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#436EEE"
+            android:padding="3dip"
+            android:text="逃生"
             android:textSize="22sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="人类一败涂地"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF8C69"
+            android:padding="3dip"
+            android:text="人类一败涂地"
             android:textSize="16sp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="数字信号处理"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#7CFC00"
+            android:padding="3dip"
+            android:text="数字信号处理"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="数字信号处理――原理、算法与应用（第四版）"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF34B3"
+            android:padding="3dip"
+            android:text="数字信号处理――原理、算法与应用（第四版）"
             android:textSize="23sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="软件过程改进"
-            android:padding="3dip"
-            android:layout_margin="5dip"
             android:background="#FF8C69"
+            android:padding="3dip"
+            android:text="软件过程改进"
             android:textSize="27sp" />
 
     </com.hanshuliang.waterflowlayout.WaterfallFlowLayout>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
