@@ -20,6 +20,8 @@
 
         <activity android:name="com.hanshuliang.shader.activity.BitmapShaderActivity"/>
 
+        <activity android:name="com.hanshuliang.shader.activity.LinearGradientActivity"/>
+
 
     </application>
 

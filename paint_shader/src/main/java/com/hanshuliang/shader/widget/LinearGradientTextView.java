@@ -90,6 +90,8 @@ public class LinearGradientTextView extends AppCompatTextView {
         mMatrix = new Matrix();
         mMatrix.setTranslate(mTranslate, 0);
         mLinearGradient.setLocalMatrix(mMatrix);
+
+        //每隔 50 毫秒 绘制一次
         postInvalidateDelayed(50);
 
     }
