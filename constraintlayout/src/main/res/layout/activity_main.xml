@@ -4,15 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="25dp">
 
-    <TextView
+    <!-- 被 约束 的组件 -->
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="被约束组件"
+
+        app:layout_constraintCircle="@id/button"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="200dp" />
+
+    <!-- 约束 目标组件 -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="188dp"
+        android:layout_height="188dp"
+        android:text="目标组件"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
