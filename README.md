@@ -14,8 +14,6 @@ CSDN 博客地址 :
     Paint 基本用法
 
 
-
-
 # 3. paint_shader
 
     Paint 渲染
