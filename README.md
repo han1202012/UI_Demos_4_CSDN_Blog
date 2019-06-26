@@ -3,8 +3,13 @@
 
 # 1. waterflowlayout
 
+
+<br>
+
     自定义瀑布流布局 (onMeasure 和 onLayout 功能示例)
 
+
+---
 
 
 # 2. paint_base
@@ -19,6 +24,7 @@
     ( 1 ) 位图渲染 
     
     ( 2 ) 线性渲染
+    
     
     
 
