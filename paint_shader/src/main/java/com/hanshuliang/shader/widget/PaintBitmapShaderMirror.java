@@ -25,7 +25,8 @@ public class PaintBitmapShaderMirror extends View {
         super(context, attrs);
     }
 
-    public PaintBitmapShaderMirror(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public PaintBitmapShaderMirror(Context context, @Nullable AttributeSet attrs,
+                                   int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -35,10 +36,13 @@ public class PaintBitmapShaderMirror extends View {
         canvas.drawColor(Color.WHITE);
 
         Paint mPaint = new Paint();
-        Bitmap mBitmap = ((BitmapDrawable)getResources().getDrawable(R.mipmap.aodesai)).getBitmap();
+        Bitmap mBitmap = ((BitmapDrawable)getResources().
+                getDrawable(R.mipmap.aodesai)).getBitmap();
 
-        //1. 创建位图渲染对象, 并设置拉伸方式, 此处设置Shader.TileMode.CLAMP,  如果绘制的位置超出了图像的边界, 那么超出部分 使用镜像平铺方式填充
-        BitmapShader bitmapShader = new BitmapShader(mBitmap, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
+        //1. 创建位图渲染对象, 并设置拉伸方式, 此处设置Shader.TileMode.CLAMP,
+        //   如果绘制的位置超出了图像的边界, 那么超出部分 使用镜像平铺方式填充
+        BitmapShader bitmapShader = new BitmapShader(mBitmap,
+                Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
 
         //2. 设置渲染到 Paint 对象
         mPaint.setShader(bitmapShader);
