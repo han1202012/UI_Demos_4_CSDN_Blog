@@ -18,7 +18,7 @@
         app:layout_constraintCircleAngle="45"
         app:layout_constraintCircleRadius="200dp" />
 
-    <!-- 约束 目标组件 -->
+    <!-- 约束 到的 目标组件 -->
     <Button
         android:id="@+id/button"
         android:layout_width="188dp"
