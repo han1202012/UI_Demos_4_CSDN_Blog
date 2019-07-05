@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <!-- 被 约束 的组件 -->
+    <!-- 被约束 的组件 -->
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
