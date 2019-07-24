@@ -1,7 +1,7 @@
 博客代码示例
 ============
 
-![Logo](web_res/icon.png)
+![Logo](web_res/icon_no_shadow.png)
 
 
 ## 1. waterflowlayout
