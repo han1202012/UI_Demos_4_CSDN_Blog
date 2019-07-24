@@ -1,7 +1,10 @@
+博客代码示例
+============
 
-请按照以下索引查找示例代码 :
+![Logo](web_res/icon.png)
 
-# 1. waterflowlayout
+
+## 1. waterflowlayout
 
 <br>
 
