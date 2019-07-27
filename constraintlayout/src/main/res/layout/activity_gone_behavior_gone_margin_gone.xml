@@ -28,6 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+
     <!--
         约束 到的 目标组件
         该组件 垂直方向 居中于整体布局
@@ -49,9 +50,9 @@
 
         android:layout_marginLeft="50dip"
 
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
 </android.support.constraint.ConstraintLayout>
+
