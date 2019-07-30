@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="25dp">
+
     <!--
         被 约束 的组件
         该组件 垂直方向 居中于整体布局
@@ -45,7 +46,6 @@
         app:layout_constraintHorizontal_bias="0.0"
 
         android:layout_marginLeft="50dip"
-
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
