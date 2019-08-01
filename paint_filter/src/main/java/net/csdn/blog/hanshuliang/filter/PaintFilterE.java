@@ -62,7 +62,7 @@ public class PaintFilterE extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // ① 设置颜色矩阵 , 该矩阵将 红色 和 蓝色通道交换
+        // ① 设置颜色矩阵 , 黑白照片效果
         ColorMatrix matrix = new ColorMatrix(new float[]{
                 0.213f,  0.715f,  0.072f,  0,  0,
                 0.213f,  0.715f,  0.072f,  0,  0,

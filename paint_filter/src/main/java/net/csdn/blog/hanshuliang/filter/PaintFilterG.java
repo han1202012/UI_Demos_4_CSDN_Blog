@@ -62,7 +62,7 @@ public class PaintFilterG extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // ① 设置颜色矩阵 , 该矩阵将 红色 和 蓝色通道交换
+        // ① 设置颜色矩阵 , 美颜效果
         ColorMatrix matrix = new ColorMatrix(new float[]{
                 1.3f,  0,  0,  0,  0,
                 0,  1.3f,  0,  0,  0,

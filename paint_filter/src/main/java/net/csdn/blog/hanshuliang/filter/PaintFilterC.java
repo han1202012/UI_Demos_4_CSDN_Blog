@@ -55,7 +55,7 @@ public class PaintFilterC extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // ① 设置颜色矩阵 , 该矩阵将 红色通道的值 翻倍
+        // ① 设置颜色矩阵 , 底片效果
         ColorMatrix matrix = new ColorMatrix(new float[]{
                 -1,  0,  0,  0,  255,
                 0,  -1,  0,  0,  255,
