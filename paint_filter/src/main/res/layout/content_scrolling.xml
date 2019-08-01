@@ -8,10 +8,604 @@
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 卡片布局 红色通道值翻倍 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_1_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="红色通道翻倍"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_1_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_1_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_1_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 ( 红色通道翻倍 ) : \n2 0 0 0 0\n0 1 0 0 0\n0 0 1 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_1_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterA
+                        android:id="@+id/filter_1_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_1_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <!-- 卡片布局 红色通道值翻倍 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_2_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="红色通道值增加 30"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_2_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_2_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_2_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 ( 红色通道增加30 ) : \n1 0 0 0 30\n0 1 0 0 0\n0 0 1 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_2_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterB
+                        android:id="@+id/filter_2_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_2_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <!-- 卡片布局 底片效果 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_3_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="底片效果 ( 反向效果 )"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_3_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_3_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_3_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 底片效果 ( 反向效果 ) : \n-1 0 0 0 255\n0 -1 0 0 255\n0 0 -1 0 255\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_3_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterC
+                        android:id="@+id/filter_3_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_3_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+            <!-- 卡片布局 红绿通道颜色交换 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_4_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="红绿通道交换 ( 矩阵第一行与第二行交换 )"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_4_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_4_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_4_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 红绿通道交换 : \n0 1 0 0 0\n1 0 0 0 0\n0 0 1 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_4_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterD
+                        android:id="@+id/filter_4_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_4_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+            <!-- 卡片布局 黑白照片效果 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_5_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="黑白照片效果"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_5_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_5_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_5_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 黑白照片效果 : \n0.213f 0.715f 0.072f 0 0\n0.213f 0.715f 0.072f 0 0\n0.213f 0.715f 0.072f 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_5_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterE
+                        android:id="@+id/filter_5_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_5_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <!-- 卡片布局 复古效果 -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_6_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="复古效果"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_6_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_6_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_6_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 复古效果 : \n1/2f  1/2f  1/2f 0 0\n1/3f  1/3f  1/3f 0 0\n1/4f  1/4f  1/4f 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_6_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterF
+                        android:id="@+id/filter_6_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_6_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+
+
+            <!-- 卡片布局 美白效果 ( 颜色增强 ) -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dip"
+                app:cardCornerRadius="5dip"
+                app:cardElevation="5dip"
+                app:contentPadding="5dip">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/filter_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/filter_7_text_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="美白效果 ( 颜色增强 )"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/filter_7_origin_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/trump"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_7_text_1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <TextView
+                        android:id="@+id/filter_7_text_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="颜色矩阵 美白效果 ( 颜色增强 ) : \n1.3f 0 0 0 0\n0 1.3f 0 0 0\n0 0 1.3f 0 0\n0 0 0 1 0"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_7_origin_image"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                    <net.csdn.blog.hanshuliang.filter.PaintFilterG
+                        android:id="@+id/filter_7_image"
+                        android:layout_width="200dip"
+                        android:layout_height="200dip"
+                        android:layout_gravity="center"
+
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+
+                        app:layout_constraintTop_toBottomOf="@+id/filter_7_text_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
 
 </android.support.v4.widget.NestedScrollView>

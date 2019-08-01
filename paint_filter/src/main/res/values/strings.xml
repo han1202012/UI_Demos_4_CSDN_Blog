@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">paint_filter</string>
+    <string name="app_name">Paint滤镜示例</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
