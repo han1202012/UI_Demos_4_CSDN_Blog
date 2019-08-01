@@ -1,1 +1,1 @@
-include ':paint_shader', ':waterflowlayout', ':paint_base', ':constraintlayout'
+include ':paint_shader', ':waterflowlayout', ':paint_base', ':constraintlayout', ':paint_filter'
