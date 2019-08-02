@@ -12,18 +12,30 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Xfermode;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * S ( Source ):                源图
+ * D ( Destination ) :          目标图
+ * Sa ( Source Alhpa ) :        源图透明度
+ * Da ( Destination Alhpa ) :   目标图透明度
+ * Sc ( Source Color ) :        源图色值
+ * Dc ( Destination Color ) :   目标图色值
+ */
 public class XfermodesView extends View {
-    private static final int W = 64;
-    private static final int H = 64;
-    private static final int ROW_MAX = 4;   // number of samples per row
+    private static int W;
+    private static int H;
+    private static final int ROW_MAX = 4;   // 每行绘制的个数
 
     private Bitmap mSrcB;
     private Bitmap mDstB;
-    private Shader mBG;     // background checker-board pattern
+    private Shader mBG;     // 背景棋盘格渲染器
 
+    //方便使用循环设置 Xfermod 图形混合模式
     private static final Xfermode[] sModes = {
+            //该模式可以清除绘制区域内的所有像素元素
             new PorterDuffXfermode(PorterDuff.Mode.CLEAR),
             new PorterDuffXfermode(PorterDuff.Mode.SRC),
             new PorterDuffXfermode(PorterDuff.Mode.DST),
@@ -51,67 +63,101 @@ public class XfermodesView extends View {
 
     public XfermodesView(Context context) {
         super(context);
+    }
 
-        mSrcB = makeSrc(W, H);
-        mDstB = makeDst(W, H);
+    public XfermodesView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
 
-        // make a ckeckerboard pattern
-        Bitmap bm = Bitmap.createBitmap(new int[] { 0xFFFFFFFF, 0xFFCCCCCC,
-                        0xFFCCCCCC, 0xFFFFFFFF }, 2, 2,
-                Bitmap.Config.RGB_565);
-        mBG = new BitmapShader(bm,
-                Shader.TileMode.REPEAT,
-                Shader.TileMode.REPEAT);
-        Matrix m = new Matrix();
-        m.setScale(6, 6);
-        mBG.setLocalMatrix(m);
+    public XfermodesView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.WHITE);
 
+        if(W == 0){
+            W = (int) ((getWidth() - 60) / 4f);
+            H = W;
+
+            mSrcB = makeSrc(W, H);
+            mDstB = makeDst(W, H);
+
+            // 绘制背景图片用的 , 这里创建一个位图渲染
+
+            // 使用颜色值创建 指定大小的位图
+            Bitmap bm = Bitmap.createBitmap(new int[] { 0xFFFFFFFF, 0xFFCCCCCC,
+                            0xFFCCCCCC, 0xFFFFFFFF }, 2, 2,
+                    Bitmap.Config.RGB_565);
+            // 创建位图渲染
+            mBG = new BitmapShader(bm,
+                    Shader.TileMode.REPEAT,
+                    Shader.TileMode.REPEAT);
+            // 设置矩阵信息
+            Matrix m = new Matrix();
+            m.setScale(6, 6);
+            mBG.setLocalMatrix(m);
+        }
+
+        // 创建绘制 时 的画笔
         Paint labelP = new Paint(Paint.ANTI_ALIAS_FLAG);
         labelP.setTextAlign(Paint.Align.CENTER);
+        labelP.setTextSize(30);
 
         Paint paint = new Paint();
         paint.setFilterBitmap(false);
 
-        canvas.translate(15, 35);
+        // 画布偏移
+        canvas.translate(15, 60);
 
         int x = 0;
         int y = 0;
+
+        // 逐个绘制 16 个不同的模式
         for (int i = 0; i < sModes.length; i++) {
-            // draw the border
+            // 绘制矩形边框
             paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(4);
             paint.setShader(null);
             canvas.drawRect(x - 0.5f, y - 0.5f,
                     x + W + 0.5f, y + H + 0.5f, paint);
 
-            // draw the checker-board pattern
+            // 绘制矩形背景
             paint.setStyle(Paint.Style.FILL);
             paint.setShader(mBG);
             canvas.drawRect(x, y, x + W, y + H, paint);
 
-            // draw the src/dst example into our offscreen bitmap
+            // 绘制 目标图 和 源图 , 注意 先画 目标图 , 在绘制 源图
+
+            // 新建图层
             int sc = canvas.saveLayer(x, y, x + W, y + H, null, Canvas.ALL_SAVE_FLAG);
             canvas.translate(x, y);
+
+            //先绘制 目标图
             canvas.drawBitmap(mDstB, 0, 0, paint);
+
+            //设置 Xfermod 图形混合模式
             paint.setXfermode(sModes[i]);
+
+            //在绘制 源图 , 使用源图 与 目标图交汇 , 然后两张图按照 设置的 Xfermod 模式来显示
             canvas.drawBitmap(mSrcB, 0, 0, paint);
+
+            //绘制完 两个 图形后 , 要取消 Xfermod , 以免影响下个循环绘制下一组 Xfermod 图形
+            //下一次循环还需要使用该 paint 画笔进行绘制
             paint.setXfermode(null);
             canvas.restoreToCount(sc);
 
-            // draw the label
+            // 绘制文字
             canvas.drawText(sLabels[i],
                     x + W/2, y - labelP.getTextSize()/2, labelP);
 
             x += W + 10;
 
-            // wrap around when we've drawn enough for one row
+            // 一行画满4个后换行
             if ((i % ROW_MAX) == ROW_MAX - 1) {
                 x = 0;
-                y += H + 30;
+                y += H + 60;
             }
         }
     }

@@ -28,56 +28,14 @@
                 app:contentPadding="5dip">
 
                 <android.support.constraint.ConstraintLayout
-                    android:id="@+id/filter_1"
+                    android:id="@+id/xfermod_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
-                    <TextView
-                        android:id="@+id/filter_1_text_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="红色通道翻倍"
-
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintVertical_bias="0"
-
-                        />
-
-                    <ImageView
-                        android:id="@+id/filter_1_origin_image"
-                        android:layout_width="200dip"
-                        android:layout_height="200dip"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/trump"
-
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-
-                        app:layout_constraintTop_toBottomOf="@+id/filter_1_text_1"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintVertical_bias="0" />
-
-                    <TextView
-                        android:id="@+id/filter_1_text_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="颜色矩阵 ( 红色通道翻倍 ) : \n2 0 0 0 0\n0 1 0 0 0\n0 0 1 0 0\n0 0 0 1 0"
-
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-
-                        app:layout_constraintTop_toBottomOf="@+id/filter_1_origin_image"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintVertical_bias="0" />
+                    <net.csdn.blog.hanshuliang.xfermod.XfermodesView
+                        android:layout_width="match_parent"
+                        android:layout_height="400dip" />
 
                 </android.support.constraint.ConstraintLayout>
 
