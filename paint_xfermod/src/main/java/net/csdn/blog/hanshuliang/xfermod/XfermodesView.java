@@ -130,7 +130,7 @@ public class XfermodesView extends View {
 
             // 绘制 目标图 和 源图 , 注意 先画 目标图 , 在绘制 源图
 
-            // 新建图层
+            // 新建图层 , 保存canvas 状态 , 该方法与 restore 配对使用 , save 之后进行变换位移等操作 , restore 恢复到之前的状态
             int sc = canvas.saveLayer(x, y, x + W, y + H, null, Canvas.ALL_SAVE_FLAG);
             canvas.translate(x, y);
 
@@ -146,6 +146,8 @@ public class XfermodesView extends View {
             //绘制完 两个 图形后 , 要取消 Xfermod , 以免影响下个循环绘制下一组 Xfermod 图形
             //下一次循环还需要使用该 paint 画笔进行绘制
             paint.setXfermode(null);
+
+            //回退到第 sc 次入栈时的状态 , 该方法与 save 方法配对使用
             canvas.restoreToCount(sc);
 
             // 绘制文字
