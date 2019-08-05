@@ -33,6 +33,7 @@ public class XfermodesView extends View {
     private Bitmap mDstB;
     private Shader mBG;     // 背景棋盘格渲染器
 
+
     //方便使用循环设置 Xfermod 图形混合模式
     private static final Xfermode[] sModes = {
             //该模式可以清除绘制区域内的所有像素元素
